@@ -20,7 +20,9 @@ namespace GodotVSIX
     /// </summary>
     internal sealed partial class PackageIds
     {
+        public const int GodotMenu = 0x1021;
         public const int MyMenuGroup = 0x0001;
         public const int UTF8Command = 0x0100;
+        public const int AndroidBuid = 0x0101;
     }
 }

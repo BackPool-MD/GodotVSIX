@@ -7,16 +7,27 @@
   <Include href="VSGlobals.vsct"/>
 
   <Commands package="GodotVSIX">
-    <Groups>
-      <Group guid="GodotVSIX" id="MyMenuGroup" priority="0x0600">
-        <Parent guid="VSMainMenu" id="godot"/>
-      </Group>
-    </Groups>
 
+
+	  <Groups>
+		  <Group guid="GodotVSIX" id="MyMenuGroup" priority="0x0600">
+			<Parent guid="VSMainMenu" id="Tools"/>
+		  </Group>
+	  </Groups>
+	  
+	  <Menus>
+		  <Menu guid="GodotVSIX" id="GodotMenu" type="Menu" priority="0x700">
+			  <Strings>
+				  <ButtonText>Godot</ButtonText>
+			  </Strings>
+		  </Menu>
+	  </Menus>
+
+	 
     <!--This section defines the elements the user can interact with, like a menu command or a button
         or combo box in a toolbar. -->
     <Buttons>
-      <Button guid="GodotVSIX" id="MyCommand" priority="0x0100" type="Button">
+      <Button guid="GodotVSIX" id="UTF8Command" priority="0x0100" type="Button">
         <Parent guid="GodotVSIX" id="MyMenuGroup" />
         <Icon guid="ImageCatalogGuid" id="StatusInformation" />
         <CommandFlag>IconIsMoniker</CommandFlag>
@@ -25,13 +36,25 @@
           <LocCanonicalName>.GodotVSIX.MyCommand</LocCanonicalName>
         </Strings>
       </Button>
+
+		<Button guid="GodotVSIX" id="AndroidBuid" priority="0x0100" type="Button">
+			<Parent guid="GodotVSIX" id="MyMenuGroup" />
+			<Icon guid="ImageCatalogGuid" id="StatusInformation" />
+			<CommandFlag>IconIsMoniker</CommandFlag>
+			<Strings>
+				<ButtonText>生成安卓编译</ButtonText>
+				<LocCanonicalName>.GodotVSIX.MyCommand</LocCanonicalName>
+			</Strings>
+		</Button>
     </Buttons>
   </Commands>
 
   <Symbols>
     <GuidSymbol name="GodotVSIX" value="{9e97ee61-2580-44e5-8b54-e59535368662}">
+	  <IDSymbol name="GodotMenu" value="0x1021" />
       <IDSymbol name="MyMenuGroup" value="0x0001" />
       <IDSymbol name="UTF8Command" value="0x0100" />
+		<IDSymbol name="AndroidBuid" value="0x0101" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

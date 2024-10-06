@@ -16,7 +16,6 @@ namespace GodotVSIX
     {
         protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
         {
-            string name = System.Globalization.CultureInfo.InstalledUICulture.Name;
             await this.RegisterCommandsAsync();
         }
     }

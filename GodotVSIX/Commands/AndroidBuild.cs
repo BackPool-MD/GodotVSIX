@@ -4,8 +4,8 @@ using System.Text;
 
 namespace GodotVSIX
 {
-    [Command(PackageIds.UTF8Command)]
-    internal sealed class UTF8Files : BaseCommand<UTF8Files>
+    [Command(PackageIds.AndroidBuid)]
+    internal sealed class AndroidBuild : BaseCommand<AndroidBuild>
     {
         protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
         {
