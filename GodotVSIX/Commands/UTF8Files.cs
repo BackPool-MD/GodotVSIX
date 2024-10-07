@@ -9,9 +9,8 @@ namespace GodotVSIX
     {
         protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
         {
-            var s = VS.Solutions.GetCurrentSolution();
-            var ps = await VS.Solutions.GetAllProjectsAsync();
-            foreach (var project in ps) 
+            var allProject = await VS.Solutions.GetAllProjectsAsync();
+            foreach (var project in allProject) 
             {
                 foreach (var child in project.Children.Where(c => c.Name.Contains(".cs")))
                 {

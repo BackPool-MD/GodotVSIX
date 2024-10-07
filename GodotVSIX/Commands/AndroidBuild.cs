@@ -1,5 +1,7 @@
-﻿using System.IO;
+﻿using Microsoft.VisualStudio.Shell.Interop;
+using System.IO;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 
 namespace GodotVSIX
@@ -9,16 +11,9 @@ namespace GodotVSIX
     {
         protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
         {
-            var s = VS.Solutions.GetCurrentSolution();
-            var ps = await VS.Solutions.GetAllProjectsAsync();
-            foreach (var project in ps) 
-            {
-                foreach (var child in project.Children.Where(c => c.Name.Contains(".cs")))
-                {
-                    string text =  File.ReadAllText(child.FullPath);
-                    File.WriteAllText(child.FullPath, text, Encoding.UTF8);
-                }
-            }
+            var workDic = Path.GetDirectoryName( VS.Solutions.GetCurrentSolution().FullPath);
+            var apk = Directory.GetFiles(workDic).Where(f => f.Contains(".apk")).Single();
+
         }
     }
 }
